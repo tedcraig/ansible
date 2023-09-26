@@ -1,0 +1,17 @@
+- hosts: localhost
+  
+  pre_tasks:
+    - include: pretasks/homebrew-setup.yml
+
+  tasks:
+    - include: tasks/git-setup.yml
+    - include: tasks/core-setup.yml
+    - include: tasks/node-setup.yml
+    - include: tasks/npm-packages.yml
+    - include: tasks/zsh-setup.yml
+    - include: tasks/slack-setup.yml
+    - include: tasks/personal-projects.yml
+    - include: tasks/vscode-setup.yml
+    - include: tasks/node-debugger.yml
+    - include: tasks/dotfiles.yml
+    - include: tasks/productivity-tools.yml

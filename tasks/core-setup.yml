@@ -1,0 +1,16 @@
+
+- name: Install 1Password
+  homebrew:
+    name: 1password
+    state: latest
+  tags:
+    - install
+    - core
+    - productivity
+
+- name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
+  become: true
+
+  # cmake, btop, gcc, go golang?, gzip, lua, neofetch, node, pkg-config, pnpm, python?, curl,
+
+  # clang

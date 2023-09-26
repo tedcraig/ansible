@@ -1,0 +1,32 @@
+- name: Install or Upgrade Git
+  homebrew:
+    name: git
+    state: latest
+  tags:
+    - install
+    - core
+    - git-personal
+
+- name: Git personal setup email
+  git_config:
+    name: user.email
+    scope: global
+    value: "tb3034me@gmail.com"
+  tags:
+  - git-personal
+- name: Git personal setup name
+  git_config:
+    name: user.name
+    scope: global
+    value: "tedcraig"
+  tags:
+  - git-personal
+
+- name: Install Lazy Git
+  homebrew:
+    name: lazygit
+    state: latest
+  tags:
+    - install
+    - core
+    - git-personal
