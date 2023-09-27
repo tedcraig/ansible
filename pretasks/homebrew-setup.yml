@@ -6,7 +6,7 @@
     - install
     - core
 
-- name: Fail If Homebrew Is Not Installed and install_homebrew_if_missing is not passed
+- name: Fail If Homebrew Is Not Installed and install_homebrew_if_missing is false
   fail:
     msg: Homebrew is missing, install from https://brew.sh
   when: 
