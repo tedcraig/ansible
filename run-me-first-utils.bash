@@ -73,6 +73,11 @@ COLOR_BLUE_GREYBG="\033[38;5;57;48;5;8m"
 COLOR_GOLD_GREYBG="\033[38;5;214;48;5;8m"
 COLOR_GREEN2="\033[38;5;40m"
 
+COLOR_BLUE_GREENBG="\033[38;5;57;48;5;22m"
+COLOR_GOLD_GREENBG="\033[38;5;214;48;5;22m"
+COLOR_GREEN2_GREENBG="\033[38;5;40;48;5;22m"
+
+
 COLOR_RESET="\033[0m"
 
 # install homebrew package manager
@@ -116,7 +121,7 @@ cd ~/scripts || {
 }
 git clone https://github.com/tedcraig/ansible.git
 
-echo -e "${COLOR_BLUE_GREYBG}==>${COLOR_GREEN2} complete!  ${COLOR_GOLD_GREYBG}Run an ansible playbook for further installations${COLOR_RESET}"
+echo -e "${COLOR_BLUE_GREENBG}==>${COLOR_GREEN2_GREENBG} complete!  ${COLOR_GOLD_GREENBG}Run an ansible playbook for further installations${COLOR_RESET}"
 
 reset_color
 }
