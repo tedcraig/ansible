@@ -95,8 +95,9 @@ brew install git
 # configure git
 echo -e "${COLOR_BLUE_GREYBG}==>${COLOR_GOLD_GREYBG} configure git:${COLOR_RESET}"
 git config --global user.name "tedcraig"
+echo "git user.name: tedcraig"
 git config --global user.email tb3034me@gmail.com
-
+echo "git user.email: tb3034me@gmail.com"
 
 # check for scripts directory
 echo -e "${COLOR_BLUE_GREYBG}==>${COLOR_GOLD_GREYBG} check existence of ~/scripts directory:${COLOR_RESET}"
@@ -110,16 +111,30 @@ else
     echo 'unable to make directory ~/scripts'
     exit
   }
+  echo '~/scripts created'
 fi
 
 
 # clone anisble repo from github
-echo -e "${COLOR_BLUE_GREYBG}==>${COLOR_GOLD_GREYBG} clone ansible repo from github into ~/scripts:${COLOR_RESET}"
-cd ~/scripts || {
-  echo 'unable to change directory into ~/scripts'
-  exit
-}
-git clone https://github.com/tedcraig/ansible.git
+echo -e "${COLOR_BLUE_GREYBG}==>${COLOR_GOLD_GREYBG} checking existence of ansible repo @ ~/scripts/ansible:${COLOR_RESET}"
+
+if [[ ! -d ~/scripts/ansible ]]; then # ~/scripts should exist by now
+  echo "anisible repo not found @ ~/scripts/ansible"
+  echo -e "${COLOR_BLUE_GREYBG}==>${COLOR_GOLD_GREYBG} cloning ansible repo from github into ~/scripts:${COLOR_RESET}"
+  cd ~/scripts
+  git clone https://github.com/tedcraig/ansible.git
+elif [[ -d ~/scripts/ansible ]] && [[ ! -a ~/scripts/ansible/.git ]]; then
+  echo "anisible repo not found @ ~/scripts/ansible"
+  echo -e "${COLOR_BLUE_GREYBG}==>${COLOR_GOLD_GREYBG} overwriting contents of ~/scripts/ansible folder with repo from github:${COLOR_RESET}"
+  rm -r ~/scripts/ansible
+  cd ~/scripts
+  git clone https://github.com/tedcraig/ansible.git
+elif
+  [[ -d ~/scripts/ansible && -a ~/scripts/ansible/.git ]]; then
+  echo 'ansible repo already exists @ ~/scripts/ansible'
+  echo -e "${COLOR_BLUE_GREYBG}==>${COLOR_GOLD_GREYBG} Skipping ansible repo clone.${COLOR_RESET}"
+fi
+
 
 echo -e "${COLOR_BLUE_GREENBG}==>${COLOR_GREEN2_GREENBG} complete!  ${COLOR_GOLD_GREENBG}Run an ansible playbook for further installations${COLOR_RESET}"
 
