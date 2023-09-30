@@ -1,4 +1,7 @@
 - name: Install Alacrity
+  stat:
+    path: /Applications/alacrity
+  register: alacrity_check
   tags: &tags_for_alacrity_tasks [ 'install', 'core' ]
 
 - name: install via homebrew
