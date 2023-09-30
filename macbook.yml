@@ -2,12 +2,14 @@
   
   vars:
     install_homebrew_if_missing: false
+    macos: true
 
   pre_tasks:
     - include: pretasks/homebrew-setup.yml
 
   tasks:
     - include: tasks/git-setup.yml
+    - include: tasks/alacrity-setup.yml
     - include: tasks/core-setup.yml
     # - include: tasks/node-setup.yml
     # - include: tasks/npm-packages.yml
