@@ -9,7 +9,7 @@
 
   tasks:
     - include: tasks/git-setup.yml
-    - include: tasks/alacrity-setup.yml
+    - include: tasks/alacritty-setup.yml
     - include: tasks/core-setup.yml
     # - include: tasks/node-setup.yml
     # - include: tasks/npm-packages.yml

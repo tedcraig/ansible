@@ -1,0 +1,13 @@
+- name: Install Alacritty
+  stat:
+    path: /Applications/alacritty
+  register: alacritty_check
+  tags: &tags_for_alacritty_tasks [ 'install', 'core' ]
+
+- name: install Alacritty via homebrew
+  homebrew:
+    name: alacritty
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+  tags: *tags_for_alacritty_tasks
+  
